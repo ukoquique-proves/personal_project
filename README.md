@@ -21,6 +21,7 @@ An active collaboration node that bidirectionalizes GitHub portfolios to find an
 - **Automation:** Advanced AI orchestration and Vibe Coding.
 
 ## 📈 Stats & Vision
+- **Código Fuente:** [GitHub Repository](https://github.com/ukoquique-proves/personal_project)
 - **Roadmap Actualizado:** Consulte la [Hoja de Ruta Unificada](UNIFIED_ROADMAP.md) para el plan de ejecución estratégica.
 - **Global Reach:** UTC-3 based, Professional English.
 - **Mission:** Building technical sovereignty to solve complex socio-ecological problems.
