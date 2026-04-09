@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nodo Soberano | Life OS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Playfair+Display:wght@700&family=Space+Mono&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --neon-blue: #00d9ff;
+            --cyber-black: #050505;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+        }
+
+        body {
+            background-color: var(--cyber-black);
+            color: #e0e0e0;
+            font-family: 'Inter', sans-serif;
+            background-image: radial-gradient(circle at 2px 2px, rgba(0, 217, 255, 0.05) 1px, transparent 0);
+            background-size: 40px 40px;
+        }
+
+        .serif-title {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .mono-data {
+            font-family: 'Space Mono', monospace;
+        }
+
+        .glass {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+        }
+
+        .neon-border {
+            border: 1px solid var(--neon-blue);
+            box-shadow: 0 0 10px rgba(0, 217, 255, 0.2);
+        }
+
+        .sidebar-item:hover {
+            color: var(--neon-blue);
+            background: rgba(0, 217, 255, 0.1);
+        }
+    </style>
+</head>
+
+<body class="min-h-screen flex">
+
+    <!-- Sidebar -->
+    <aside class="w-64 glass m-4 flex flex-col p-6 space-y-8">
+        <div class="mb-4">
+            <h1 class="serif-title text-2xl text-[#00d9ff] leading-tight">NODO<br>SOBERANO</h1>
+            <p class="text-[10px] text-gray-500 tracking-widest uppercase">Protocolo v1.0.0</p>
+        </div>
+
+        <nav class="flex-1 space-y-2">
+            <a href="#" class="sidebar-item block p-3 rounded-lg transition-all mono-data text-sm">/ DASHBOARD</a>
+            <a href="#" class="sidebar-item block p-3 rounded-lg transition-all mono-data text-sm">/ RESILIENCIA</a>
+            <a href="#" class="sidebar-item block p-3 rounded-lg transition-all mono-data text-sm">/ OJO DE PAZ</a>
+            <a href="#" class="sidebar-item block p-3 rounded-lg transition-all mono-data text-sm">/ NUEVA TROYA</a>
+            <a href="#" class="sidebar-item block p-3 rounded-lg transition-all mono-data text-sm">/ BITÁCORA</a>
+        </nav>
+
+        <div class="pt-8 border-t border-white/10">
+            <div class="flex items-center space-x-3">
+                <div class="w-2 h-2 rounded-full bg-[#00d9ff] animate-pulse"></div>
+                <span class="text-xs mono-data text-gray-400">STATUS: OPERATIONAL</span>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-8 overflow-y-auto">
+        <header class="flex justify-between items-center mb-12">
+            <h2 class="serif-title text-4xl">Estado de Situación</h2>
+            <div class="flex space-x-4">
+                <div class="glass px-4 py-2 text-xs mono-data" 
+                     th:text="${#temporals.format(#temporals.createNow(), 'dd MMM yyyy')}">
+                     29 MAR 2026
+                </div>
+                <div class="glass px-4 py-2 text-xs mono-data neon-border">UTC-3</div>
+            </div>
+        </header>
+
+        <!-- Grid Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Autonomía Card -->
+            <div class="glass p-6 hover:neon-border transition-all">
+                <p class="text-xs text-gray-400 mono-data mb-2 uppercase">Autonomía</p>
+                <h3 class="text-3xl font-bold text-[#00d9ff]">-- DÍAS</h3>
+                <div class="w-full bg-white/5 h-1 mt-4 rounded-full overflow-hidden">
+                    <div class="bg-[#00d9ff] h-full" style="width: 0%"></div>
+                </div>
+            </div>
+
+            <!-- Salud Card -->
+            <div class="glass p-6 hover:neon-border transition-all">
+                <p class="text-xs text-gray-400 mono-data mb-2 uppercase">Meta Salud</p>
+                <h3 class="text-3xl font-bold text-white">$ 0</h3>
+                <div class="w-full bg-white/5 h-1 mt-4 rounded-full overflow-hidden">
+                    <div class="bg-blue-500 h-full" style="width: 0%"></div>
+                </div>
+            </div>
+
+            <!-- Nodos Card -->
+            <div class="glass p-6 hover:neon-border transition-all">
+                <p class="text-xs text-gray-400 mono-data mb-2 uppercase">Nodos Activos</p>
+                <h3 class="text-3xl font-bold text-white">3</h3>
+            </div>
+
+            <!-- Mission Card -->
+            <div class="glass p-6 hover:neon-border transition-all border-l-4 border-[#00d9ff]">
+                <p class="text-xs text-gray-400 mono-data mb-2 uppercase">Portfolio Status</p>
+                <h3 class="text-xl font-bold text-white">READY FOR MISSION</h3>
+            </div>
+        </div>
+
+        <section class="mt-12 glass p-8">
+            <h3 class="serif-title text-2xl mb-6">Últimos Hitos</h3>
+            <div class="space-y-4">
+                <div class="flex items-start space-x-4 p-4 border-l border-white/10 hover:bg-white/5 transition-all">
+                    <span class="mono-data text-[#00d9ff] text-xs">02:43</span>
+                    <div>
+                        <p class="text-sm font-bold">Protocolo de Orden Finalizado</p>
+                        <p class="text-xs text-gray-400">Conceptos de ORDENACIÓN integrados en README maestro.</p>
+                    </div>
+                </div>
+                <!-- More hits will go here -->
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
